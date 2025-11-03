@@ -1,181 +1,85 @@
-/* ----------------------------------------
-   Tema: Portal Informasi SMAN 1 Rengel
-   Versi: 2.0 (Responsif + Animasi)
-------------------------------------------- */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 body {
-  background-color: #f9fafb;
-  color: #1e293b;
-  display: flex;
-  justify-content: center;
-  padding: 30px;
-}
-
-/* --- Kontainer utama --- */
-.container {
-  width: 100%;
-  max-width: 720px;
-  background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
-}
-
-/* --- Bagian Profil Sekolah --- */
-.profile {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #d9f1ff 0%, #ffffff 100%);
+  color: #2a2a2a;
   text-align: center;
-  background: linear-gradient(135deg, #1E3A8A, #0F172A);
-  color: white;
-  padding: 40px 20px;
 }
 
-.profile-img {
-  width: 130px;
-  height: 130px;
+.container {
+  padding: 40px 20px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.hero-image {
+  width: 140px;
+  height: 140px;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid #FACC15;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease;
+  border: 4px solid #90c9ff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  animation: float 3s ease-in-out infinite;
 }
 
-.profile-img:hover {
-  transform: scale(1.05);
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
-.school-name {
-  font-size: 1.9rem;
-  font-weight: 700;
-  letter-spacing: 1px;
+h1 {
+  margin-top: 20px;
+  font-size: 1.8rem;
+  color: #1976d2;
 }
 
-.school-desc {
-  font-size: 0.95rem;
-  color: #E0E7FF;
-  margin-top: 5px;
+.subtitle {
+  margin: 8px 0 24px;
+  color: #4f4f4f;
+  font-weight: 500;
 }
 
-/* --- Judul Section --- */
-.section-title {
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 15px;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #1E3A8A;
-  position: relative;
-}
-
-.section-title::after {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 3px;
-  background: #FACC15;
-  margin: 8px auto 0;
-  border-radius: 2px;
-}
-
-/* --- Daftar Berita (Kartu) --- */
 .links {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 20px;
+  margin-top: 24px;
 }
 
-.link-card {
-  display: flex;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  overflow: hidden;
+.btn {
+  background-color: #1976d2;
+  color: white;
   text-decoration: none;
-  color: inherit;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(25,118,210,0.3);
 }
 
-.link-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-}
-
-.link-card img {
-  width: 120px;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.link-card:hover img {
+.btn:hover {
+  background-color: #2196f3;
   transform: scale(1.05);
 }
 
-.link-text {
-  padding: 12px 16px;
-}
-
-.link-text h3 {
-  color: #1E3A8A;
-  font-size: 1.05rem;
-  margin-bottom: 5px;
-}
-
-.link-text p {
-  font-size: 0.9rem;
-  color: #334155;
-  line-height: 1.4;
-}
-
-/* --- Footer --- */
 footer {
-  background: #1E3A8A;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  font-size: 0.85rem;
-  margin-top: 20px;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #555;
 }
 
-/* --- Responsif (Tablet & HP) --- */
-@media (max-width: 768px) {
-  body {
-    padding: 10px;
-  }
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards;
+}
 
-  .profile {
-    padding: 30px 15px;
-  }
-
-  .profile-img {
-    width: 110px;
-    height: 110px;
-  }
-
-  .school-name {
-    font-size: 1.6rem;
-  }
-
-  .link-card {
-    flex-direction: column;
-  }
-
-  .link-card img {
-    width: 100%;
-    height: 180px;
-  }
-
-  .link-text {
-    padding: 14px;
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
